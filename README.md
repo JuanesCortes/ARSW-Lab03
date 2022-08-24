@@ -1,5 +1,8 @@
 
 ## Escuela Colombiana de Ingeniería
+#### Juan Esteban Cortes
+#### Andres Felipe Martinez
+
 ### Arquitecturas de Software – ARSW
 
 

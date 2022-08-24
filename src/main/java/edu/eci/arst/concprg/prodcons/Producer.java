@@ -38,8 +38,6 @@ public class Producer extends Thread {
             Thread.sleep(1000);
             queue.notifyAll();
         }
-
-
     }
     @Override
     public void run() {
