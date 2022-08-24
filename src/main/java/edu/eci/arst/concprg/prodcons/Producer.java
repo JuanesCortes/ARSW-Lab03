@@ -16,7 +16,7 @@ import java.util.logging.Logger;
  */
 public class Producer extends Thread {
 
-    private Queue<Integer> queue = null;
+    private final Queue<Integer> queue;
 
     private int dataSeed = 0;
     private Random rand=null;
@@ -27,17 +27,25 @@ public class Producer extends Thread {
         rand = new Random(System.currentTimeMillis());
         this.stockLimit=stockLimit;
     }
-
-    @Override
-    public void run() {
-        while (true) {
-
+    private void producir () throws InterruptedException {
+        synchronized (queue){
+            while(queue.size() == stockLimit){
+                queue.wait();
+            }
             dataSeed = dataSeed + rand.nextInt(100);
             System.out.println("Producer added " + dataSeed);
             queue.add(dataSeed);
-            
+            Thread.sleep(1000);
+            queue.notifyAll();
+        }
+
+
+    }
+    @Override
+    public void run() {
+        while (true) {
             try {
-                Thread.sleep(1000);
+                producir();
             } catch (InterruptedException ex) {
                 Logger.getLogger(Producer.class.getName()).log(Level.SEVERE, null, ex);
             }
