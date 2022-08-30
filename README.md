@@ -62,7 +62,15 @@ Sincronización y Dead-Locks.
 
 4. Una primera hipótesis para que se presente la condición de carrera para dicha función (pause and check), es que el programa consulta la lista cuyos valores va a imprimir, a la vez que otros hilos modifican sus valores. Para corregir esto, haga lo que sea necesario para que efectivamente, antes de imprimir los resultados actuales, se pausen todos los demás hilos. Adicionalmente, implemente la opción ‘resume’.
 
+#### Se agregaron en la clase Inmortal los metodos pausar() y continuar() a demas de una sincronizacion en la region critica que se encontraba al momento de consultar la lista inmortalPopulation permitiendo asi que cada inmortal pelee con el siguiente inmortal que le corresponde y asi no alterar al tiempo la vida de este si ya se encuentra peleando con otro.
+
+![](img/parte3-4.png)
+
 5. Verifique nuevamente el funcionamiento (haga clic muchas veces en el botón). Se cumple o no el invariante?.
+
+#### Si se cumple el invariante.
+
+![](img/parte3-5.png)
 
 6. Identifique posibles regiones críticas en lo que respecta a la pelea de los inmortales. Implemente una estrategia de bloqueo que evite las condiciones de carrera. Recuerde que si usted requiere usar dos o más ‘locks’ simultáneamente, puede usar bloques sincronizados anidados:
 
