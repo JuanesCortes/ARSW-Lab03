@@ -35,6 +35,8 @@ Teniendo en cuenta los conceptos vistos de condición de carrera y sincronizaci�
 - La búsqueda distribuida se detenga (deje de buscar en las listas negras restantes) y retorne la respuesta apenas, en su conjunto, los hilos hayan detectado el número de ocurrencias requerido que determina si un host es confiable o no (_BLACK_LIST_ALARM_COUNT_).
 - Lo anterior, garantizando que no se den condiciones de carrera.
 
+#### Se agrego un synchronized bara la variable que lleva las listas negras encontradas en el hilo y a demas un a condicion (_BLACK_LIST_ALARM_COUNT_) en el bucle for encargado de llevar la cuenta de la cantidad de ocurrencias de las listas negras.
+
 ##### Parte III. – Avance para el martes, antes de clase.
 
 Sincronización y Dead-Locks.
@@ -50,7 +52,13 @@ Sincronización y Dead-Locks.
 
 2. Revise el código e identifique cómo se implemento la funcionalidad antes indicada. Dada la intención del juego, un invariante debería ser que la sumatoria de los puntos de vida de todos los jugadores siempre sea el mismo(claro está, en un instante de tiempo en el que no esté en proceso una operación de incremento/reducción de tiempo). Para este caso, para N jugadores, cual debería ser este valor?.
 
+#### Para N jugadores el valor de la suma de las vidas de los jugadores seria N*VidaBase. Teniendo en cuenta la suposicion del invariante dado.
+
 3. Ejecute la aplicación y verifique cómo funcionan las opción ‘pause and check’. Se cumple el invariante?.
+
+#### No se cumple este invariante segun la respuesta obtenida en la funcion 'pause and check'
+
+![](img/parte3-3.png)
 
 4. Una primera hipótesis para que se presente la condición de carrera para dicha función (pause and check), es que el programa consulta la lista cuyos valores va a imprimir, a la vez que otros hilos modifican sus valores. Para corregir esto, haga lo que sea necesario para que efectivamente, antes de imprimir los resultados actuales, se pausen todos los demás hilos. Adicionalmente, implemente la opción ‘resume’.
 
