@@ -35,7 +35,6 @@ public class Producer extends Thread {
             dataSeed = dataSeed + rand.nextInt(100);
             System.out.println("Producer added " + dataSeed);
             queue.add(dataSeed);
-            Thread.sleep(1000);
             queue.notifyAll();
         }
     }

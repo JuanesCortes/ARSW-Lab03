@@ -27,6 +27,7 @@ public class Consumer extends Thread{
             }
             if (queue.size() > 0) {
                 int elem=queue.poll();
+                Thread.sleep(1000);
                 System.out.println("Consumer consumes "+elem);
             }
             queue.notifyAll();

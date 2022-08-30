@@ -1,6 +1,10 @@
 target
+.settings/
+.settings
 src/.idea
 src/.idea/
 src/out
 src/out/
 src/*.iml
+.classpath
+.project
